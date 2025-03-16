@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>手势放烟花</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ml5@0.12.2/dist/ml5.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div id="canvas-container"></div>
+    
+    <div class="ui-overlay">
+      <div class="header">
+        <h1>手势放烟花</h1>
+        <div class="status-indicator">
+          <span id="status-icon" class="status-icon"></span>
+          <span id="status-text">正在初始化...</span>
+        </div>
+      </div>
+      
+      <div class="instruction-panel">
+        <div class="instruction-step">
+          <div class="step-number">1</div>
+          <div class="step-content">将手掌放在摄像头前</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-number">2</div>
+          <div class="step-content">将拇指中和指捏在一起</div>
+        </div>
+        <div class="instruction-step">
+          <div class="step-number">3</div>
+          <div class="step-content">快速分开手指放烟花</div>
+        </div>
+      </div>
+      
+      <div class="controls">
+        <div class="control-group">
+          <label for="threshold-slider">触发灵敏度</label>
+          <input type="range" id="threshold-slider" min="20" max="80" value="40">
+          <span id="threshold-value">40</span>
+        </div>
+        <div class="control-group">
+          <label for="particle-slider">粒子数量</label>
+          <input type="range" id="particle-slider" min="50" max="300" value="180">
+          <span id="particle-value">180</span>
+        </div>
+        <div class="control-group buttons">
+          <button id="toggle-camera">切换摄像头</button>
+          <button id="toggle-debug">调试模式</button>
+          <button id="toggle-preview">隐藏预览</button>
+        </div>
+      </div>
+    </div>
+    
+    <div id="camera-preview">
+      <div class="preview-header">摄像头预览</div>
+    </div>
+    
+    <div id="debug-panel" class="hidden">
+      <h3>调试信息</h3>
+      <div id="debug-info"></div>
+    </div>
+  </div>
+  
+  <script src="sketch.js"></script>
+</body>
+</html>
